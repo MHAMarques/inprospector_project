@@ -1,24 +1,26 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { apiAuth } from '@/pages/api/request';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { IProfileUser } from '@/components/hubPage';
-import { ProspectList } from '@/components/prospectList';
-import { OneProspect } from '@/components/oneProspect';
-import { UserUpdate } from '@/components/userUpdate';
-import { ProspectUpdate } from '@/components/prospectUpdate';
+import { HubInfo } from './hubInfo';
+import { HelpMe } from './helpMe';
 
+export interface IProfileUser {
+    id: string;
+    email: string;
+    name: string;
+    last_name: string;
+    phone: string;
+    prospects: [];
+}
 
-export default function Home() {
+export function HowToPage(){
     const [profile, setProfile] = useState<IProfileUser>();
     const [loading, setLoading] = useState<Boolean>(true);
     const [userToken, setUserToken] = useState<Boolean>(false);
     const navigate = useRouter();
-    const query = navigate.query.log;
-    const oneProspect = navigate.query.one;
-    
+    const help = parseInt(navigate.query.help);
     useEffect (() => {
         async function getProfile(){
             const token = localStorage.getItem("InProspector:Token");
@@ -30,7 +32,7 @@ export default function Home() {
                 .catch((err => {
                     console.log(err)
                     localStorage.clear();
-                    navigate.push(('/'));
+                    setLoading(false);
                     return null
                 }))
                 setProfile(dataProfile);
@@ -40,95 +42,84 @@ export default function Home() {
 
         getProfile();
     }, [navigate]);
-
+    
     if (typeof window !== "undefined" && userToken == false) {
         const Token = localStorage.getItem("InProspector:Token");
         if(Token){setUserToken(true);}
-        else{
-            navigate.push(('/'))
-        }
     }
-    if(query == 'off'){
-        localStorage.clear();
-        navigate.push(('/'));
-    }
-
+    
+    if(loading) return <h3>Loading</h3>;
     return (
-    <>
-        <Head>
-        <title>In Prospector - Atualizar Informações</title>
-        <meta name="description" content="Registre uma conta e acompanhe seus contatos do LinkeIn." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/inIcon.png" />
-        </Head>
+        <>
         <main className={styles.main}>
         <div className={styles.description}>
-            <p>
-                {profile ? profile.email + ' - ' + profile.name + ' ' + profile.last_name : 'Acesso Prospector'}
-            </p>
-            <div>
+          <p>
+            {profile ? profile.email + ' - ' + profile.name + ' ' + profile.last_name : 'Saiba como aproveitar o app'}
+          </p>
+          <div>
             <a
-                href="/list"
-                rel="noopener noreferrer"
+              href="/"
+              rel="noopener noreferrer"
             >
-                <Image
+              <Image
                 src="/logoProspector.png"
                 alt="Prospector Logo"
                 width={256}
                 height={100}
                 priority
-                />
+              />
             </a>
-            </div>
+          </div>
         </div>
 
         <div className={styles.center}>
-            <div className={styles.register}>
-            {profile ? oneProspect ? <ProspectUpdate profileInfo = {profile}/> : <UserUpdate profileInfo = {profile}/> : ''}
+          
+            <div className={styles.prospector}>
+              <HelpMe />
             </div>
         </div>
 
         <div className={styles.grid}>
         <a
-            href="/howto?help=7"
+            href={help > 0 && help < 9 ? "/howto?help="+(help+1) : "/howto?help=1"}
             className={styles.card}
             rel="noopener noreferrer"
           >
             <h2>
-              Como usar <span>»</span>
+              Próxima ajuda <span>»</span>
             </h2>
             <p>
-              Aprenda como aproveitar ao máximo de forma rápida e fácil!
+              Continue a sabe como aproveitar melhor o aplicativo!
             </p>
           </a>
 
           <a
-            href="/add"
+            href={help > 1 && help < 9 ? "/howto?help="+(help-1) : "/howto"}
             className={styles.card}
             rel="noopener noreferrer"
           >
             <h2>
-              Novo Prospect <span>»</span>
+              Ajuda anterior <span>»</span>
             </h2>
             <p>
-              Clique para adicionar um novo prospect à sua rede de contatos.
+              Se precisar entender melhor, volte uma página para conferir novamente.
             </p>
           </a>
 
           <a
-            href="/hub/?log=off"
+            href="/hub"
             className={styles.card}
             rel="noopener noreferrer"
           >
             <h2>
-              Fechar App <span>»</span>
+              Acessar<span>»</span>
             </h2>
             <p>
-              Clique para sair. Será necessário usar seus dados para acessar novamente.
+              Clique para acesar e aproveitar o melhor que o app pode lhe fornecer.
             </p>
           </a>
         </div>
-        </main>
-    </>
+      </main>
+        </>
     )
 }

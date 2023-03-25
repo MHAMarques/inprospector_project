@@ -97,7 +97,7 @@ export function HubPage(){
 
         <div className={styles.grid}>
         <a
-            href="/howto"
+            href="/howto?help=3"
             className={styles.card}
             rel="noopener noreferrer"
           >

@@ -3,6 +3,46 @@
 
 <h2 style="font-size:32px;color:mediumblue">Front-End - inProspector Web:</h2>
 
+## Página princial (/):
+
+É a página de entrada no sistema, nela você encontra 3 links com acesso à página de registro de nova conta de usuário, 1 link para página de acesso ao sistema e o link que te trouxe aqui, para procurar ajuda sobre como usar.
+
+## Página de registro (/signup):
+
+Nesta página você encontra o formulário para criar um novo usuário no sistema com suas informações e dados de acesso. É importante usar um email de acesso que seja real para confirmações do sistema e uma senha que possa memorizar. Além dele, existe um link para a página de acesso ao sistema, um link para esta página e um link para a página de ajuda.
+
+## Página de acesso (/signin):
+
+Nesta página você encontra o formulário de acesso ao sistema. É preciso enviar a combinação correta de email e password cadastrado na página de registro para obter acesso ao sistema. Além dele, existe um link para a página de registro para criar uma nova conta no sistema, um link para esta página e um link para a página de ajuda.
+
+## Página do usuário (/hub):
+
+É a página principal ao acessar o sistema, nela você encontra uma mensagem de boas vindas com a quantidade de prospects cadastrados e 5 links diferentes. Os 2 principais são para listar os prospects cadastrados e o próximo para adicionar um novo prospect à lista de prospects. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite atualizar as informações do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Adição de prospecto (/add):
+
+Nesta página você encontra o formulário de adição de novos prospectos à lista de contatos do usuário. É importante preencher todas as informações, no caso do linkedin, é importante informar corretamente o URL para que o link não fique quebrado. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite listar os prospects do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Listagem de prospectos (/list):
+
+Nesta página você encontra uma lista com os prospects cadastrados pelo usuário, resumindo cada contato com o nome completo, a empresa e o cargo do prospect. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite adicionar um novo prospecto à lista de contatos do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Mostrar um prospecto (/list?one=:prospect_id):
+
+Esta página você encontra as informações de um prospect cadastrados pelo usuário, o nome completo, a empresa que trabalha, o cargo de atuação, o email e telefone para contato, o link de acesso ao perfil de linkedin do prospecto, um link para atualizar esses dados e um campo de texto para salvar informações importantes sobre esse prospecto. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite adicionar um novo prospecto à lista de contatos do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Atualização de dados do usuário (/update):
+
+Nesta página você encontra um formulário com os principais dados do usuário para atualizar e salvar as modificações. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite adicionar um novo prospecto à lista de contatos do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Atualização de dados do prospecto (/update?one=:prospect_id):
+
+Nesta página você encontra um formulário com os principais dados de um prospecto cadastrado pelo usuário para atualizar e salvar as modificações. Dos 3 links que ficam na parte de baixo, o primeiro traz a esta página, o segundo permite adicionar um novo prospecto à lista de contatos do usuário e o terceiro permite finalizar a sessão de acesso do usuário autenticado.
+
+## Página de ajuda (/howto):
+
+Nesta página você encontra informações para te ajudar a passar por cada parte do aplicativo in Prospector. Dos 3 links que ficam na parte de baixo, o primeiro oferece novas informações de ajuda, o segundo retorna à página de ajuda anterior e o terceiro permite acessar o sistema.
+
 <h2 style="font-size:32px;color:mediumblue">Back-End - inProspector API:</h2>
 
 Para iniciar a API use <code>npm start</code> para carregar na porta 3030 e nas seguintes rotas:
