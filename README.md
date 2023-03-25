@@ -1,9 +1,9 @@
-<p style="font-size:48px;color:mediumblue">Projeto Full Stack - inProspector</p>
+<h1 style="font-size:48px;color:mediumblue">Projeto Full Stack - inProspector</h1>
 <p style="font-size:18px;padding:0px 25px 10px">Projeto Full-stack de catálogo de contatos. Desenvolvimento Front-End em typescript Next.js e Back-End em typescript com Node.js em Express e TypeORM com banco de dados PostgreSQL</p>
 
-<h2 style="font-size:32px;color:mediumblue">Front-End - inProspector Web:</h2><hr noshade>
+<h2 style="font-size:32px;color:mediumblue">Front-End - inProspector Web:</h2>
 
-<h2 style="font-size:32px;color:mediumblue">Back-End - inProspector API:</h2><hr noshade>
+<h2 style="font-size:32px;color:mediumblue">Back-End - inProspector API:</h2>
 
 Para iniciar a API use <code>npm start</code> para carregar na porta 3030 e nas seguintes rotas:
 
