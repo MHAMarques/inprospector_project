@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import { IProfileUser } from '@/components/hubPage';
 import { ProspectList } from '@/components/prospectList';
 import { OneProspect } from '@/components/oneProspect';
+import { UserUpdate } from '@/components/userUpdate';
+import { ProspectUpdate } from '@/components/prospectUpdate';
 
 
 export default function Home() {
@@ -66,7 +68,7 @@ export default function Home() {
             </p>
             <div>
             <a
-                href="/hub"
+                href="/list"
                 rel="noopener noreferrer"
             >
                 <Image
@@ -81,8 +83,8 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-            <div className={styles.prospector}>
-            {profile ? oneProspect ? <OneProspect profileInfo = {profile}/> : <ProspectList profileInfo = {profile}/> : ''}
+            <div className={styles.register}>
+            {profile ? oneProspect ? <ProspectUpdate profileInfo = {profile}/> : <UserUpdate profileInfo = {profile}/> : ''}
             </div>
         </div>
 

@@ -58,6 +58,7 @@ export function OneProspect ({profileInfo}:IHubInfo){
             <h4><Link href={"mailto:"+prospect.email} target="_blank">{prospect.email}</Link></h4>
             <h4><Link href={"http://wa.me/"+prospect.phone} target="_blank">{prospect.phone}</Link></h4>
             <h4><Link href={prospect.linkedin} target="_blank">Perfil Linkedin</Link></h4>
+            <h4><Link href={"/update?one="+prospect.id} target="_blank">Atualizar dados</Link></h4>
             </div>
             <div><form onSubmit={handleSubmit(onFormSubmit)}>
                 <textarea {...register("information")} defaultValue={prospect.information}></textarea>
