@@ -1,15 +1,16 @@
 import AppDataSource from "../../data-source";
 import { User } from "../../entities/user.entity";
-import { IUserUpdate } from "../../interfaces/users";
-import { userResponseSchema } from "../../schemas/user.schemas";
+import { IUserUpdate, IUser } from "../../interfaces/users";
+import { userResponseSchema, updateUserSchema } from "../../schemas/user.schemas";
 
 const updateUserService = async (userId:string, userInfo: IUserUpdate) => {
     const userRepo = AppDataSource.getRepository(User);
     
-    const userData = await userRepo.findOneBy({id: userId});
+    const userData: IUser = await userRepo.findOneBy({id: userId});
+    const validUser = await updateUserSchema.validate(userInfo, {stripUnknown: true})
     const updateUser = userRepo.create({
         ...userData,
-        ...userInfo
+        ...validUser
     })
     await userRepo.save(updateUser);
     

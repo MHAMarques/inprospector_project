@@ -14,9 +14,7 @@ export const newUserSchema: SchemaOf<IUserRequest> = yup.object().shape({
 export const updateUserSchema: SchemaOf<IUserUpdate> = yup.object().shape({
     name: yup.string(),
     last_name: yup.string(),
-    phone: yup.string(),
-    email: yup.string().email(),
-    password: yup.string()
+    phone: yup.string()
 });
 
 export const userResponseSchema: SchemaOf<IUser> = yup.object().shape({
