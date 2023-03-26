@@ -111,7 +111,7 @@ export function HowToPage(){
               Acessar<span>»</span>
             </h2>
             <p>
-              Clique para acesar e aproveitar o melhor que o app pode lhe fornecer.
+              Clique para acesar e aproveitar o melhor que o app pode fornecer.
             </p>
           </a>
         </div>
