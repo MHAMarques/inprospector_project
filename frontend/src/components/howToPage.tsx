@@ -17,7 +17,6 @@ export interface IProfileUser {
 
 export function HowToPage(){
     const [profile, setProfile] = useState<IProfileUser>();
-    const [loading, setLoading] = useState<Boolean>(true);
     const [userToken, setUserToken] = useState<Boolean>(false);
     const navigate = useRouter();
     const help = parseInt(navigate.query.help);
@@ -32,11 +31,9 @@ export function HowToPage(){
                 .catch((err => {
                     console.log(err)
                     localStorage.clear();
-                    setLoading(false);
                     return null
                 }))
                 setProfile(dataProfile);
-                setLoading(false);
             }
         }
 
@@ -48,7 +45,6 @@ export function HowToPage(){
         if(Token){setUserToken(true);}
     }
     
-    if(loading) return <h3>Loading</h3>;
     return (
         <>
         <main className={styles.main}>
@@ -115,7 +111,7 @@ export function HowToPage(){
               Acessar<span>»</span>
             </h2>
             <p>
-              Clique para acesar e aproveitar o melhor que o app pode lhe fornecer.
+              Clique para acesar e aproveitar o melhor que o app pode fornecer.
             </p>
           </a>
         </div>
