@@ -38,7 +38,6 @@ class User {
     prospects: Prospect[];
 
     @BeforeInsert()
-    @BeforeUpdate()
     hashPassword(){this.password = hashSync(this.password, 10)};
 }
 
