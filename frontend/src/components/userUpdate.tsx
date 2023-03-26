@@ -8,10 +8,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { IHubInfo } from './hubInfo';
 
-export interface IRegisterUser {
-    email: string;
-    password: string;
-    checkpass: string;
+export interface IUpdateUser {
     name: string;
     last_name: string;
     phone: string;
@@ -24,12 +21,12 @@ export function UserUpdate({profileInfo}:IHubInfo) {
         phone: yup.string().required("Preencha o campo de telefone.")
     });
     
-    const { register, handleSubmit, formState: { errors } } = useForm<IRegisterUser>({
+    const { register, handleSubmit, formState: { errors } } = useForm<IUpdateUser>({
         resolver: yupResolver(yupSchema),
     });
     const navigate = useRouter();
     const [regError, setregError] = useState<String>("none");
-    async function onFormSubmit(formData:IRegisterUser){
+    async function onFormSubmit(formData:IUpdateUser){
         const newUser = await apiAuth
         .patch('/users/'+profileInfo.id, formData)
         .then((res) => res.data)
