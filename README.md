@@ -1,6 +1,37 @@
 <h1 style="font-size:48px;color:mediumblue">Projeto Full Stack - inProspector</h1>
 <p style="font-size:18px;padding:0px 25px 10px">Projeto Full-stack de catálogo de contatos. Desenvolvimento Front-End em typescript Next.js e Back-End em typescript com Node.js em Express e TypeORM com banco de dados PostgreSQL</p>
 
+#
+
+<h2 style="font-size:32px;color:mediumblue">Como instalar o projeto:</h2>
+
+1. Vá ao webiste do <a href="http://nodejs.org" target="_blank">Node.js</a>, faça download da aplicação e instale o servidor para rodar ambos front e back ends.
+
+2. Vá ao webiste do <a href="http://postgresql.org" target="_blank">PostgreSQL</a>, faça download da aplicação e instale o servidor para rodar o banco de dados usado no backend. Anote as informações definidas durante a instalação, como senha e porta de execução do postgre serão necessários na configuração do sistema.
+
+3. Com ambos instalados, execute o SQL Shell (psql) para criar o banco de dados:
+   <code>CREATE DATABASE prospector</code>
+
+4. Renomeie o arquivo <code>.env.example</code> da pasta <b>/backend</b> para <code>.env</code> e edite com as informações definidas por você na configuração do PostgreSQL<pre>
+PGHOST=localhost
+PGPORT=5432
+PGUSER=postgres
+PGPASSWORD=suasenha
+PGDATABASE=prospector
+SECRET_KEY=TroqueEssaSecrect_key
+</pre>
+
+5. Após ter a base de dados criada, execute o <b>Node.js command prompter</b>. Vá até as pastas de <b>/frontend</b> e <b>/backend</b> e execute <b>em ambas</b> o comando: <code>npm install</code>
+
+6. Ainda no <b>Node.js command prompter</b>, na pasta <b>/backend</b>, execute o comando para persistirem as migrações da API no banco de dados: <code>npm run typeorm migrations:run -- -d .\src\data-source.ts</code>
+
+7. Por fim, em terminais separados, execute <code>npm start</code> em <b>/backend</b> e <code>npm run dev</code> em <b>/frontend</b><pre>{
+   "web_url":"http://localhost:3000",
+   "api_url":"http://localhost:3030"
+   }</pre>
+
+#
+
 <h2 style="font-size:32px;color:mediumblue">Front-End - inProspector Web:</h2>
 
 ## Página princial (/):
@@ -44,8 +75,6 @@ Nesta página você encontra um formulário com os principais dados de um prospe
 Nesta página você encontra informações para te ajudar a passar por cada parte do aplicativo in Prospector. Dos 3 links que ficam na parte de baixo, o primeiro oferece novas informações de ajuda, o segundo retorna à página de ajuda anterior e o terceiro permite acessar o sistema.
 
 <h2 style="font-size:32px;color:mediumblue">Back-End - inProspector API:</h2>
-
-Para iniciar a API use <code>npm start</code> para carregar na porta 3030 e nas seguintes rotas:
 
 # /users
 
